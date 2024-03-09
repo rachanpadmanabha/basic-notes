@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+// import logo from "./logo.svg";
+import { useState } from "react";
+import "./App.css";
+import "./InputSelector";
+import { InputSelector, NoteApp } from "./InputSelector";
 function App() {
+  let [toggle, setToggle] = useState(true);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App h-screen bg-slate-300">
+      {/* <header className="App-header mb-4">
+        <p>Pick users</p>
+      </header> */}
+      <button
+        className="border-1 px-3 py-2 rounded-full text-sm cursor-pointer border-blue-90 bg-slate-500 hover:bg-slate-400"
+        onClick={(_) => setToggle(!toggle)}
+      >
+        Toggle {toggle}
+      </button>
+      {toggle ? <InputSelector /> : <NoteApp />}
     </div>
   );
 }
